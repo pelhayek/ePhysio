@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Area
+{% endblock %}
+
+{% block main %}
+<!-- (Crudely) centres a Bootstrap card/text -->
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3" id="black">
+            <div class="card-header">
+                <h5 class="card-title">ePhysio Checkup</h5>
+                <p class="card-text"> <b>Where is your pain, discomfort or injury?</b> Select a body region from the form below.</p>
+            </div>
+            <!-- Creates a form and changing image side-by-side. Image changes based on radio selection -->
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <td id="rightshift">
+                            <!-- Form to select body area. Radio selection will change the image as per changeImage JS function -->
+                            <form action="/area" id="area" method="post" align="left">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="neck" onclick="changeImage('neck')">Neck<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="shoulder" onclick="changeImage('shoulder')">Shoulder<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="upper_arm" onclick="changeImage('upper_arm')">Upper Arm<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="elbow" onclick="changeImage('elbow')">Elbow<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="forearm" onclick="changeImage('forearm')">Forearm<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="wrist" onclick="changeImage('wrist')">Wrist<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="hand" onclick="changeImage('hand')">Hand<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="middle_back" onclick="changeImage('middle_back')">Middle Back<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="lower_back" onclick="changeImage('lower_back')">Lower Back<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="hip" onclick="changeImage('hip')">Hip/Buttocks<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="upper_leg" onclick="changeImage('upper_leg')">Upper Leg<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="knee" onclick="changeImage('knee')">Knee<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="lower_leg" onclick="changeImage('lower_leg')">Lower Leg<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="ankle" onclick="changeImage('ankle')">Ankle<br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="area" value="foot" onclick="changeImage('foot')" required>Foot<br>
+                                </div>
+                                <br>
+                                <button class="btn btn-primary" type="submit">Next</button>
+                            </form>
+                        </td>
+                        <td>
+                            <img id="picture" src="static/images/body.png" alt="[image]" width=80% align=center>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to change body area image based on radio selection -->
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'neck' )
+            document.getElementById("picture").src = "static/images/neck.png";
+        else if ( n == 'shoulder' )
+            document.getElementById("picture").src = "static/images/shoulder.png";
+        else if ( n == 'upper_arm' )
+            document.getElementById("picture").src = "static/images/upper_arm.png";
+        else if ( n == 'elbow' )
+            document.getElementById("picture").src = "static/images/elbow.png";
+        else if ( n == 'forearm' )
+            document.getElementById("picture").src = "static/images/forearm.png";
+        else if ( n == 'wrist' )
+            document.getElementById("picture").src = "static/images/wrist.png";
+        else if ( n == 'hand' )
+            document.getElementById("picture").src = "static/images/hand.png";
+        else if ( n == 'middle_back' )
+            document.getElementById("picture").src = "static/images/middle_back.png";
+        else if ( n == 'lower_back' )
+            document.getElementById("picture").src = "static/images/lower_back.png";
+        else if ( n == 'hip' )
+            document.getElementById("picture").src = "static/images/hip.png";
+        else if ( n == 'upper_leg' )
+            document.getElementById("picture").src = "static/images/upper_leg.png";
+        else if ( n == 'knee' )
+            document.getElementById("picture").src = "static/images/knee.png";
+        else if ( n == 'lower_leg' )
+            document.getElementById("picture").src = "static/images/lower_leg.png";
+        else if ( n == 'ankle' )
+            document.getElementById("picture").src = "static/images/ankle.png";
+        else if ( n == 'foot' )
+            document.getElementById("picture").src = "static/images/foot.png";
+    }
+</script>
+{% endblock %}

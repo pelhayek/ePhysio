@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div id="centrewrapper">
+        <div id="centrediv">
+            <br>
+            <!-- Create a Bootstrap card deck with links to Checkup, History and Browse pages -->
+            <div class="card-deck">
+                <div class="card text-light bg-dark" id="black">
+                    <a href="/browse">
+                        <img id="hover" src="static/images/index1.png" class="card-img-top" alt="Explore">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Explore</h5>
+                        <p class="card-text">Browse the ePhysio injury database to find out more about common injuries diagnosed by physiotherapists.</p>
+                        <p class="card-text"><small class="text-muted">Click below to learn more.</small></p>
+                        <a href="/browse" class="btn btn-primary" role="button">Explore</a><br>
+                    </div>
+                </div>
+                <div class="card text-light bg-dark" id="black">
+                    <!-- On click, return a confirmation box before moving to Checkup page -->
+                    <a href="/area" onclick="return confirm('DISCLAIMER: All content on ePhysio is for informational purposes only. ePhysio is not a substitute for professional medical or health advice, diagnosis, or treatment. By using ePhysio, you accept responsibility for your use of the content provided within it.')">
+                        <img id="hover" src="static/images/index2.jpg" class="card-img-top" alt="Checkup">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">ePhysio Checkup</h5>
+                        <p class="card-text">Let ePhysio assess and diagnose your pain, discomfort or injury.</p>
+                        <p class="card-text"><small class="text-muted">Click below to get started.</small></p>
+                        <a href="/area" class="btn btn-primary" role="button" onclick="return confirm('DISCLAIMER: All content on ePhysio is for informational purposes only. ePhysio is not a substitute for professional medical or health advice, diagnosis, or treatment. By using ePhysio, you accept responsibility for your use of the content provided within it.')">Start Checkup</a>
+                    </div>
+                </div>
+                <div class="card text-light bg-dark" id="black">
+                    <a href="/history">
+                        <img id="hover" src="static/images/index3.jpg" class="card-img-top" alt="History">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">History</h5>
+                        <p class="card-text">See your previous Checkup results and learn more about your diagnosis.</p>
+                        <p class="card-text"><small class="text-muted">Click below to check your history.</small></p>
+                        <a href="/history" class="btn btn-primary" role="button">History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

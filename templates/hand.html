@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hand
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Hand</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/hand" id="hand" method="post">
+                    Where is your hand pain located? <br>
+                    <input type="radio" name="location" value="palmar" onclick="changeImage('palmar')"> Front (palm-side) <br>
+                    <input type="radio" name="location" value="dorsal" onclick="changeImage('dorsal')"> Back <br>
+                    <input type="radio" name="location" value="thumb" onclick="changeImage('thumb')"> Thumb <br>
+                    <input type="radio" name="location" value="fingers" onclick="changeImage('fingers')" required> Fingers (2-5) <br>
+                    <img id="picture" src="static/images/hand/hand2.png" alt="Hand" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="trauma"> Direct trauma - Fall onto an outstretched hand, direct impact, punch <br>
+                    <input type="radio" name="onset" value="indirect"> Suddenly from movement - twisted, awkward movement, gripping, overstretched <br>
+                    <input type="radio" name="onset" value="progressive" required> Progressively - noticed it gradually over time <br>
+                    <br>
+                    Is there any obvious deformity (e.g. bump, lump, bent fingers, swelling)? <br>
+                    <input type="radio" name="deformity" value="yes"> Yes <br>
+                    <input type="radio" name="deformity" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'palmar' )
+            document.getElementById("picture").src = "static/images/hand/hand_palmar.png";
+        else if ( n == 'dorsal' )
+            document.getElementById("picture").src = "static/images/hand/hand_dorsal.png";
+        else if ( n == 'thumb' )
+            document.getElementById("picture").src = "static/images/hand/hand_thumb.png";
+        else if ( n == 'fingers' )
+            document.getElementById("picture").src = "static/images/hand/hand_fingers.png";
+    }
+</script>
+
+{% endblock %}

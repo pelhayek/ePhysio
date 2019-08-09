@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upper Leg
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Upper Leg</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/upper_leg" id="upper_leg" method="post">
+                    Where is your upper leg pain located?<br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')"> Outside <br>
+                    <input type="radio" name="location" value="front" onclick="changeImage('front')"> Front <br>
+                    <input type="radio" name="location" value="back" onclick="changeImage('back')" required> Back <br>
+                    <img id="picture" src="static/images/upper_leg/upper_leg2.png" alt="Upper Leg" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="contact"> Suddenly by direct contact - e.g. a direct hit, "cork" <br>
+                    <input type="radio" name="onset" value="noncontact"> Suddenly with no contact - e.g. while walking, while running,<br> playing sports, heavy lifting <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    Do you have low back pain?<br>
+                    <input type="radio" name="lbp" value="yes"> Yes <br>
+                    <input type="radio" name="lbp" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/upper_leg/upper_leg_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/upper_leg/upper_leg_outside.png";
+        else if ( n == 'front' )
+            document.getElementById("picture").src = "static/images/upper_leg/upper_leg_front.png";
+        else if ( n == 'back' )
+            document.getElementById("picture").src = "static/images/upper_leg/upper_leg_back.png";
+    }
+</script>
+{% endblock %}

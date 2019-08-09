@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Knee
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Knee</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/knee" id="knee" method="post">
+                    Where is your knee pain located? <br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')"> Outside <br>
+                    <input type="radio" name="location" value="front" onclick="changeImage('front')"> Front <br>
+                    <input type="radio" name="location" value="back" onclick="changeImage('back')" required> Back <br>
+                    <img id="picture" src="static/images/knee/knee2.png" alt="Knee" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="suddenly"> Suddenly - e.g. following a fall, sporting injury, awkward movement <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    Does your knee give way or feel unstable? <br>
+                    <input type="radio" name="unstable" value="yes"> Yes <br>
+                    <input type="radio" name="unstable" value="no" required> No <br>
+                    <br>
+                    Does your knee click, lock or catch with movement? <br>
+                    <input type="radio" name="lock" value="yes"> Yes <br>
+                    <input type="radio" name="lock" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/knee/knee_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/knee/knee_outside.png";
+        else if ( n == 'front' )
+            document.getElementById("picture").src = "static/images/knee/knee_front.png";
+        else if ( n == 'back' )
+            document.getElementById("picture").src = "static/images/knee/knee_back.png";
+    }
+</script>
+
+{% endblock %}

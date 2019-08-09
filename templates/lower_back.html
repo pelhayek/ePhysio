@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lower Back
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Lower Back</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/lower_back" id="lower_back" method="post">
+                    Where is your low back pain located? <br>
+                    <input type="radio" name="location" value="central" onclick="changeImage('central')"> In the middle <br>
+                    <input type="radio" name="location" value="unilateral" onclick="changeImage('unilateral')"> On one side <br>
+                    <input type="radio" name="location" value="bilateral" onclick="changeImage('bilateral')"> On both sides <br>
+                    <input type="radio" name="location" value="bilateral" onclick="changeImage('allover')" required> All over <br>
+                    <img id="picture" src="static/images/lower_back/lower_back2.png" alt="Lower Back" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="suddenly"> Suddenly - e.g. bending down, a fall, awkward movement, heavy lifting <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    How long have you had this pain for? <br>
+                    <input type="radio" name="time" value="acute"> Less than two weeks <br>
+                    <input type="radio" name="time" value="subacute"> Two to six weeks <br>
+                    <input type="radio" name="time" value="chronic" required> More than six weeks <br>
+                    <br>
+                    Do you have any of the following in your buttocks, legs or feet: <br>pain, pins and needles, burning, numbness, weakness? <br>
+                    <input type="radio" name="referred" value="yes"> Yes <br>
+                    <input type="radio" name="referred" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'central' )
+            document.getElementById("picture").src = "static/images/lower_back/lower_back_central.png";
+        else if ( n == 'unilateral' )
+            document.getElementById("picture").src = "static/images/lower_back/lower_back_unilateral.png";
+        else if ( n == 'bilateral' )
+            document.getElementById("picture").src = "static/images/lower_back/lower_back_bilateral.png";
+        else if ( n == 'allover' )
+            document.getElementById("picture").src = "static/images/lower_back/lower_back_allover.png";
+    }
+</script>
+
+{% endblock %}

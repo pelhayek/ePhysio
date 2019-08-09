@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<br>
+<div id="centrewrapper">
+    <div id="centrediv">
+        <div class="card text-light mb-3" id="black">
+            <div class="card-body">
+                <h1 class="display-4">Welcome to ePhysio</h1><br>
+                <p class="lead">ePhysio helps you better understand your pain. <br>We ask questions written by real physiotherapists to link you to trusted information about your health.</p>
+                <hr class="my-4">
+                <!-- Bootstrap carousel to display promo images of the website -->
+                <div class="carousel slide d-inline-block" data-ride="carousel">
+                    <div id="indexcarousel" class="carousel slide"  data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#indexcarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#indexcarousel" data-slide-to="1"></li>
+                            <li data-target="#indexcarousel" data-slide-to="2"></li>
+                        </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="/login">
+                                <img class="d-inline-block" src="static/images/home1.png" alt="Home - Checkup">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Have your pain diagnosed</h5>
+                                <p>ePhysio's Checkup tool assesses and diagnoses your pain, discomfort or injury.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="/login">
+                                <img class="d-inline-block" src="static/images/home2.png" alt="Home - History">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>View your test results</h5>
+                                <p>ePhysio records your previous test results and links you to trusted information about your diagnosis.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="/login">
+                                <img class="d-inline-block" src="static/images/home3.png" alt="Home - Explore">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Browse ePhysio's injury database</h5>
+                                <p>Find out more about common injuries diagnosed by physiotherapists.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#indexcarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#indexcarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <p>Ready to get started?</p>
+                <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+                <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

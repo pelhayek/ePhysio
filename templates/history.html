@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <br>
+    <table class="table table-dark table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Area</th>
+                <th scope="col">Primary Diagnosis</th>
+                <th scope="col">Secondary Diagnosis</th>
+                <th scope="col">Tertiary Diagnosis</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- For each test saved for the user, create a row and return the time/date, area, and three diagnoses -->
+        {% for x in results %}
+            <tr class="table-dark text-dark">
+                <th scope="row">{{ x["timedate"] }}</th>
+                <td>{{ x["area"] }}</td>
+                <td><a href="http://www.google.com/search?q={{ x["ddx1"] }}&btnI"><b>{{ x["ddx1"] }}</b></a></td>
+                <td><a href="http://www.google.com/search?q={{ x["ddx2"] }}&btnI">{{ x["ddx2"] }}</td>
+                <td><a href="http://www.google.com/search?q={{ x["ddx3"] }}&btnI">{{ x["ddx3"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

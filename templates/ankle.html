@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ankle
+{% endblock %}
+
+{% block main %}
+<!-- Similar code for all body area pages which are part of the Checkup feature -->
+<!-- Centres a Bootstrap card/text -->
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Ankle</h5>
+            </div>
+            <!-- Form which returns values to an SQL search in relevant database -->
+            <div class="card-body" id="leftalign">
+                <form action="/ankle" id="ankle" method="post">
+                    Where is your ankle pain located? <br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')"> Outside <br>
+                    <input type="radio" name="location" value="front" onclick="changeImage('front')"> Front <br>
+                    <input type="radio" name="location" value="back" onclick="changeImage('back')" required> Back <br>
+                    <img id="picture" src="static/images/ankle/ankle2.png" alt="Ankle" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="suddenly"> Suddenly - e.g. rolled, twisted, fell, sporting injury <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    Does your ankle feel unstable or give way? <br>
+                    <input type="radio" name="unstable" value="yes"> Yes <br>
+                    <input type="radio" name="unstable" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to change image on click of form buttons for pain location -->
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/ankle/ankle_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/ankle/ankle_outside.png";
+        else if ( n == 'front' )
+            document.getElementById("picture").src = "static/images/ankle/ankle_front.png";
+        else if ( n == 'back' )
+            document.getElementById("picture").src = "static/images/ankle/ankle_back.png";
+    }
+</script>
+{% endblock %}

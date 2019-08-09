@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lower Leg
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Lower Leg</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/lower_leg" id="lower_leg" method="post">
+                    Where is your lower leg pain located? <br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')"> Outside <br>
+                    <input type="radio" name="location" value="front" onclick="changeImage('front')"> Front <br>
+                    <input type="radio" name="location" value="back" onclick="changeImage('back')" required> Back <br>
+                    <img id="picture" src="static/images/lower_leg/lower_leg2.png" alt="Lower Leg" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="suddenly"> Suddenly - e.g. following a fall, sporting injury, awkward movement <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    Is your lower leg, ankle or foot swollen? <br>
+                    <input type="radio" name="swelling" value="yes"> Yes <br>
+                    <input type="radio" name="swelling" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/lower_leg/lower_leg_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/lower_leg/lower_leg_outside.png";
+        else if ( n == 'front' )
+            document.getElementById("picture").src = "static/images/lower_leg/lower_leg_front.png";
+        else if ( n == 'back' )
+            document.getElementById("picture").src = "static/images/lower_leg/lower_leg_back.png";
+    }
+</script>
+
+{% endblock %}

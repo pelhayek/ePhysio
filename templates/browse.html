@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Browse
+{% endblock %}
+
+{% block main %}
+<br>
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-body">
+			Browse our databases for common injuries diagnosed by physiotherapists.
+				<br><br>
+				<!-- Selecting an item will submit the form -->
+				<form method="POST">
+					<select class="custom-select" name="area" id="area" onchange="this.form.submit()">
+						<option value="" disabled selected>Select a body area</option>
+						<option value="ankle">Ankle</option>
+						<option value="elbow">Elbow</option>
+						<option value="foot">Foot</option>
+						<option value="forearm">Forearm</option>
+						<option value="hand">Hand</option>
+						<option value="hip">Hip</option>
+						<option value="knee">Knee</option>
+						<option value="lower_back">Lower Back</option>
+						<option value="lower_leg">Lower Leg</option>
+						<option value="middle_back">Middle Back</option>
+						<option value="neck">Neck</option>
+						<option value="shoulder">Shoulder</option>
+						<option value="upper_arm">Upper Arm</option>
+						<option value="upper_leg">Upper Leg</option>
+						<option value="wrist">Wrist</option>
+					</select>
+				</form>
+				<br>
+				<!-- If form submitted, list unique results from database. -->
+			    {% if request.method == "POST" %}
+			    <h3>{{ area }}</h3>
+			    <ul>
+					{% for x in results %}
+					<!-- Clicking result link will input the diagnosis into a google search, and return the first result in a new tab -->
+					<li><a class="text-info" href="http://www.google.com/search?q={{ x }}&btnI" target="_blank">{{ x }}</a></li>
+					{% endfor %}
+			    </ul>
+			    Want to find out more? Click on a link to get more information about that injury.
+			    {% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<br>
+<div id="centrewrapper">
+    <div id="centrediv">
+        <div class="card text-light bg-dark mb-3" style="width: 24rem;" id="black">
+            <div class="card-body">
+                <!-- If username already exists, alert user -->
+                {% if username %}
+                    <b><font color="red">The username <b><u>{{ username }}</u></b> already exists!<br>
+                    If you have an account, <a href="/login">log in</a> here.<br></font></b><br>
+                {% endif %}
+                Sign up for free to get started!
+                <br><br>
+                <form action="/register" id="registration" method="post">
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="password" placeholder="Password - 8 characters minimum" type="password" minlength=8/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="confirmation" placeholder="Re-enter password" type="password"/>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ensure username is entered, password > 8 characters, and password confirmation is correct -->
+<script>
+    let form = document.getElementById("registration");
+    form.onsubmit = function() {
+        if (form.username.value == "") {
+            alert("Please enter a username");
+            return false;
+        }
+        else if (form.password.value == "") {
+            alert("Please enter a password");
+            return false;
+        }
+        else if (form.confirmation.value == "") {
+            alert("Please confirm your password");
+            return false;
+        }
+        else if (form.password.value != form.confirmation.value) {
+            alert("Passwords do not match!");
+            return false;
+        }
+        return true;
+    };
+</script>
+{% endblock %}

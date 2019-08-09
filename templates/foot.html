@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Foot
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Foot</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <br>
+                <form action="/foot" id="foot" method="post">
+                    Where is your foot pain located? <br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')"> Outside <br>
+                    <input type="radio" name="location" value="dorsal" onclick="changeImage('dorsal')"> Top <br>
+                    <input type="radio" name="location" value="plantar" onclick="changeImage('plantar')"> Bottom <br>
+                    <input type="radio" name="location" value="heel" onclick="changeImage('heel')"> Heel <br>
+                    <input type="radio" name="location" value="toes" onclick="changeImage('toes')" required> Toe/toes <br>
+                    <img id="picture" src="static/images/foot/foot2.png" alt="Foot" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="suddenly"> Suddenly - e.g. rolled, impact, twisted, fell, sporting injury <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - e.g. noticed it gradually over time <br>
+                    <br>
+                    How long have you had the pain for? <br>
+                    <input type="radio" name="time" value="acute"> Less than two weeks <br>
+                    <input type="radio" name="time" value="subacute"> Two to six weeks <br>
+                    <input type="radio" name="time" value="chronic" required> More than six weeks <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                <br>
+                </form>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/foot/foot_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/foot/foot_outside.png";
+        else if ( n == 'dorsal' )
+            document.getElementById("picture").src = "static/images/foot/foot_dorsal.png";
+        else if ( n == 'plantar' )
+            document.getElementById("picture").src = "static/images/foot/foot_plantar.png";
+        else if ( n == 'heel' )
+            document.getElementById("picture").src = "static/images/foot/foot_heel.png";
+        else if ( n == 'toes' )
+            document.getElementById("picture").src = "static/images/foot/foot_toes.png";
+    }
+</script>
+{% endblock %}

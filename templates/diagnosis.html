@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Diagnosis
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Diagnosis</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <p class="card-text">Your <b>{{ area }}</b> symptoms are most consistent with:</p>
+                <table class="table table-dark table-hover">
+                    <tr class="table-dark text-dark">
+                        <!-- List results in table returned from database -->
+                        <th scope="row">Diagnosis 1</th>
+                        <!-- Clicking result link will input the diagnosis into a google search, and return the first result in a new tab -->
+                        <td><b><a href="https://www.google.com/search?q={{ result1 }}&btnI" target="_blank">{{ result1 }}</a></b></td>
+                    </tr>
+                    <tr class="table-dark text-dark">
+                        <th scope="row">Diagnosis 2</th>
+                        <td><b><a href="https://www.google.com/search?q={{ result2 }}&btnI" target="_blank">{{ result2 }}</a></b></td>
+                    </tr>
+                    <tr class="table-dark text-dark">
+                        <th scope="row">Diagnosis 3</th>
+                        <td><b><a href="https://www.google.com/search?q={{ result3 }}&btnI" target="_blank">{{ result3 }}</a></b></td>
+                    </tr>
+                </table>
+                <p class="card-text">Your results have been saved.<br>Click on a link above to find out more information.</p>
+                <div class="card-footer">What's next?<br><br>
+                    <a href="/area" class="btn btn-primary" role="button" onclick="return confirm('DISCLAIMER: All content on ePhysio is for informational purposes only. ePhysio is not a substitute for professional medical or health advice, diagnosis, or treatment. By using ePhysio, you accept responsibility for your use of the content provided within it.')">Checkup</a> - Start a new checkup<br><br>
+                    <a href="/history" class="btn btn-primary" role="button" onmouseover="changeImage('index2')">History</a> - View your previous results<br><br>
+                    <a href="/browse" class="btn btn-primary" role="button">Explore</a> - Browse all possible results
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

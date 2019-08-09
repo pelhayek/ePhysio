@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upper Arm
+{% endblock %}
+
+{% block main %}
+<div id="centrewrapper">
+    <div id="centrediv">
+        <br>
+        <div class="card text-light bg-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Upper Arm</h5>
+            </div>
+            <div class="card-body" id="leftalign">
+                <form action="/upper_arm" id="upper_arm" method="post">
+                    Where is your upper arm pain located? <br>
+                    <input type="radio" name="location" value="front" onclick="changeImage('front')"> Front <br>
+                    <input type="radio" name="location" value="back" onclick="changeImage('back')"> Back <br>
+                    <input type="radio" name="location" value="inside" onclick="changeImage('inside')"> Inside <br>
+                    <input type="radio" name="location" value="outside" onclick="changeImage('outside')" required> Outside <br>
+                    <img id="picture" src="static/images/upper_arm/upper_arm2.png" alt="Upper Arm" align="center"><br>
+                    <br>
+                    How did the pain start?<br>
+                    <input type="radio" name="onset" value="trauma"> Trauma - a car accident, direct impact, fall. <br>
+                    <input type="radio" name="onset" value="lifting"> Lifting - heavy weights, overhead lifting.  <br>
+                    <input type="radio" name="onset" value="overhead"> Moving arm or reaching - overhead or awkward movement, overstretched. <br>
+                    <input type="radio" name="onset" value="progressively" required> Progressively - noticed it gradually over time <br>
+                    <br>
+                    Do you have any of the following in your neck, shoulder, arm or hand:<br> pain, pins and needles, numbness, burning, weakness? <br>
+                    <input type="radio" name="referred" value="yes"> Yes <br>
+                    <input type="radio" name="referred" value="no" required> No <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function changeImage(n) {
+        if ( n == 'inside' )
+            document.getElementById("picture").src = "static/images/upper_arm/upper_arm_inside.png";
+        else if ( n == 'outside' )
+            document.getElementById("picture").src = "static/images/upper_arm/upper_arm_outside.png";
+        else if ( n == 'front' )
+            document.getElementById("picture").src = "static/images/upper_arm/upper_arm_front.png";
+        else if ( n == 'back' )
+            document.getElementById("picture").src = "static/images/upper_arm/upper_arm_back.png";
+    }
+</script>
+{% endblock %}
